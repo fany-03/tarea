@@ -1,0 +1,21 @@
+<?php
+function esPalindromo($palabra) {
+    // Eliminar espacios y convertir a minúsculas para hacer la comparación insensible a mayúsculas
+    $palabra = strtolower(str_replace(' ', '', $palabra));
+    
+    // Comparar la palabra original con la invertida
+    if ($palabra == strrev($palabra)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Ejemplo de uso
+$palabra = "Anita lava la tina";
+if (esPalindromo($palabra)) {
+    echo "La palabra '$palabra' es un palíndromo.";
+} else {
+    echo "La palabra '$palabra' no es un palíndromo.";
+}
+?>

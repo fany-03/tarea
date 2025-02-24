@@ -1,0 +1,49 @@
+<?php
+
+function calcular($figura, $dimensiones) {
+    switch ($figura) {
+        case 'circulo':
+            $perimetro = 2 * M_PI * $dimensiones['radio'];
+            $area = M_PI * pow($dimensiones['radio'], 2);
+            echo "Círculo: Perímetro = $perimetro, Área = $area\n";
+            break;
+        case 'cuadrado':
+            $perimetro = 4 * $dimensiones['lado'];
+            $area = pow($dimensiones['lado'], 2);
+            echo "Cuadrado: Perímetro = $perimetro, Área = $area\n";
+            break;
+        case 'rectangulo':
+            $perimetro = 2 * ($dimensiones['largo'] + $dimensiones['ancho']);
+            $area = $dimensiones['largo'] * $dimensiones['ancho'];
+            echo "Rectángulo: Perímetro = $perimetro, Área = $area\n";
+            break;
+        case 'cubo':
+            $volumen = pow($dimensiones['lado'], 3);
+            $area = 6 * pow($dimensiones['lado'], 2);
+            echo "Cubo: Volumen = $volumen, Área = $area\n";
+            break;
+        case 'cilindro':
+            $volumen = M_PI * pow($dimensiones['radio'], 2) * $dimensiones['altura'];
+            $area = 2 * M_PI * $dimensiones['radio'] * ($dimensiones['radio'] + $dimensiones['altura']);
+            echo "Cilindro: Volumen = $volumen, Área = $area\n";
+            break;
+        case 'esfera':
+            $volumen = (4/3) * M_PI * pow($dimensiones['radio'], 3);
+            $area = 4 * M_PI * pow($dimensiones['radio'], 2);
+            echo "Esfera: Volumen = $volumen, Área = $area\n";
+            break;
+        default:
+            echo "Figura no válida.\n";
+            break;
+    }
+}
+
+// Ejemplo
+calcular('circulo', ['radio' => 5]);
+calcular('cuadrado', ['lado' => 4]);
+calcular('rectangulo', ['largo' => 6, 'ancho' => 3]);
+calcular('cubo', ['lado' => 2]);
+calcular('cilindro', ['radio' => 3, 'altura' => 7]);
+calcular('esfera', ['radio' => 6]);
+
+?>
